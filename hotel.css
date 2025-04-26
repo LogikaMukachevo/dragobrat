@@ -1,0 +1,412 @@
+body{
+    background-color:#2D3136 ;
+    scroll-behavior: smooth;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+.header{
+    background-color: #D5DFF6;
+    color: black;
+    padding-left: 50px;
+    padding-top: 15;
+    font-size: 33px;
+    font-family: Inter, Extra Bold Italic;
+}
+
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+  height: 200px;
+  background-color: #d5dff623;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 40px;
+  opacity: 0;
+  animation: slideUpAndOut 5s forwards;
+  pointer-events: none; /* дозволити кліки крізь контейнер */
+  z-index: 5; /* нижче, ніж у меню */
+}
+/* Стиль для тексту */
+.text {
+  font-size: 80px;
+  color: rgba(255, 255, 255, 0.877);
+  margin: 0;
+  font-weight: lighter;
+  text-align: center;
+}
+
+/* Анімація підйому і зникнення */
+@keyframes slideUpAndOut {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 100%); /* Знизу */
+  }
+  20% {
+    opacity: 1;
+    transform: translate(-50%, -50%); /* Центр (під'їхав і став) */
+  }
+  70% {
+    opacity: 1;
+    transform: translate(-50%, -50%); /* Стоїть нерухомо в центрі */
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -150%); /* Виїхав вгору і зник */
+  }
+}
+.menu{
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.3);
+  height: 50px ;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  box-sizing: border-box;
+  margin-top: 0px;
+  list-style: none;
+  
+  color: rgb(255, 255, 255);
+  font-weight: lighter;
+  
+}
+.menu a:hover{
+  transform: scale(1.1);
+}
+.menu a {
+  display: flex;
+  border-right: 2px solid #DFE6EE;
+  padding: 0 120px;
+  
+  text-decoration: none;
+  color: rgb(255, 255, 255); 
+  font-size: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+.menu li:last-child a {
+border-right: none; /* Прибираємо лінію в останнього елемента */
+}
+
+
+header {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+    url('img/34.jpg');
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+  transform-origin: center;
+  transform: scale(1);
+  transition: transform 0.6s ease-in-out;
+  animation: initialZoom 2s ease-out;
+}
+
+@keyframes initialZoom {
+  from {
+    transform: scale(1.1);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.header:hover::before {
+  transform: scale(1.2);
+}
+
+.main{
+    background-color: rgb(255, 255, 255, 0.24);
+    padding: 50px;
+    padding-left: 20px;
+    border-radius: 50px;
+    margin-top: 300px;
+    width: 60%;  
+    margin: 100px auto;
+    height: 370px;
+    text-align: left;
+    font-size: 25px;
+    color: white;
+    font-family: initial;
+    display: flex;
+    justify-content: flex-end;
+    font-weight: lighter;
+    transition: transform 0.5s ease;
+}
+.main:hover{
+  transform: scale(1.1);
+}
+
+.main p{
+    margin-top: 40px;
+    margin-left: 40px;
+    font-weight: lighter;
+}
+.mainimg{
+    border-radius: 60px;
+    margin-right: 20px;
+    margin-bottom: 40px;
+    margin-left: 20px;
+    padding: 20px;
+    height: 330px;
+    width: 350px;
+  }
+
+  .hotel-cards {
+    display: flex;
+    gap: 100px;
+    justify-content: center;
+    flex-wrap: wrap;
+    background-color: #2f3136;
+    padding: 40px 20px;
+  }
+  
+  .card {
+    background-color: #50525a;
+    color: white;
+    border-radius: 40px;
+    width: 300px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  }
+  
+  .card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 15px;
+    margin-bottom: 15px;
+  }
+  
+  .card h3 {
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  
+  .card ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 15px;
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+  
+  .card .price {
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: right;
+    margin-bottom: 12px;
+  }
+  
+  .details-btn {
+    display: inline-block;
+    background-color: #d3d9f3;
+    color: #333;
+    text-decoration: none;
+    padding: 10px 16px;
+    border-radius: 10px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+  
+  .details-btn span {
+    margin-left: 8px;
+  }
+  
+  .details-btn:hover {
+    background-color: #b8c2ec;
+  }
+  
+
+
+  .footer {
+    margin-top: -20px;
+    display: flex;
+    justify-content: space-between;
+    padding: 30px;
+    background: #D5DFF6;
+    top: 100px;
+    height: 400px;
+    position: relative;
+    font-size: 20px;
+    overflow: hidden;
+    padding-bottom: 20px;
+  }
+  .footer-section:hover {
+    transform: scale(1.1);
+  }
+  
+  
+  .footer-section {
+    flex: 1;
+    text-align: center;
+    border-right: 0.1px solid black;
+    height: 500px;
+    line-height: 40px;
+    top: 20px;
+    position: relative;
+    transition: transform 0.3s ease;
+    
+  }
+  .footer-section img{
+    width: 25px;
+    height: 25px;
+    margin-right: 15px;
+    }
+
+  .footer-section:last-child {
+    border-right: none;
+  }
+
+  .footer-section p {
+    margin: 5px 0;
+    color: #615e5e;
+    
+  }
+  
+  .footer-section a {
+    color: #615e5e;
+    text-decoration: none;
+    font-weight: lighter;
+  }
+  h5{
+    font-size: 25px;
+    color: #615e5e;
+    
+  }
+  @media (max-width: 768px) {
+    .menu {
+      flex-direction: column;
+      gap: 10px;
+      height: auto;
+      padding: 10px 0;
+    }
+    .text{
+      font-size: 40px;
+    }
+  
+    .menu a {
+      font-size: 16px;
+      border-right: none;
+    }
+  
+    .main {
+      width: 70%;
+      margin: 80px auto;
+      font-size: 18px;
+      
+    }
+    
+    .mainimg{
+      display: none;
+    }
+    
+    .footer {
+      
+      flex-direction: column;
+      height: auto;
+      gap: 20px;
+    }
+  
+    .footer-section {
+      height: auto;
+      border-right: none;
+      border-bottom: 1px solid gray;
+      padding-bottom: 20px;
+    }
+  
+    .footer-section:last-child {
+      border-bottom: none;
+    }
+  
+    .header {
+      font-size: 30px;
+      padding-left: 10px;
+    }
+    .burger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      z-index: 1001;
+    }
+    
+    .burger span {
+      height: 3px;
+      width: 25px;
+      background: #2D3136;
+      margin: 2px 0;
+      border-radius: 2px;
+      transition: 0.3s;
+    }
+    
+    .menu-container {
+      display: none;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.1);
+      position: absolute;
+      top: 45px;
+      left: 0;
+      z-index: 1000;
+      animation: fadeSlide 0.3s ease-in-out forwards;
+    }
+    
+    .menu-container.open {
+      display: flex;
+      justify-content: center;
+    }
+    
+    @media (max-width: 768px) {
+      .burger {
+        display: flex;
+      }
+    
+      nav:not(.menu-container) {
+        display: none;
+      }
+    
+      .menu {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        padding: 20px 0;
+      }
+    
+      .menu a {
+        font-size: 20px;
+        color: white;
+        text-decoration: none;
+      }
+    }
+    
+  }
+  
+  
